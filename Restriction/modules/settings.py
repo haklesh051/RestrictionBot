@@ -107,10 +107,10 @@ async def see_replace(query):
 # --------------------String-Session--------------------- #
 
 async def add_session(query):    
-    sos = await app.ask(query.message.chat.id, text="Give me a caption to set.")
+    sos = await app.ask(query.message.chat.id, text="Give me a session to set.")
     session = sos.text
     await db.set_session(query.from_user.id, session=session)
-    await query.message.reply_text("✅ Your caption has been successfully set.")
+    await query.message.reply_text("✅ Your session has been successfully set.")
 
 async def delete_session(query):
     data = await db.get_data(query.from_user.id)  
